@@ -21,6 +21,7 @@ import { ResetPage } from './pages/Reset'
 import { commonSlice } from './store/common'
 import { store, useAppDispatch, useAppSelector } from './store/store'
 import { parseUrlParam } from './utils/parseUrlParam'
+import { StrategyList } from './pages/StrategyList'
 
 message.config({
   top: 48,
@@ -69,6 +70,7 @@ export const App = () => {
       <Spin spinning={loadingInfo?.loading || loading} tip={loadingInfo?.text}>
         <Content>
           <Routes>
+            <Route path="/" element={<StrategyList />}></Route>
             <Route path="/account" element={<AccountPage />}></Route>
             <Route path="/register" element={<RegisterPage />}></Route>
             <Route path="/login" element={<LoginPage />}></Route>
