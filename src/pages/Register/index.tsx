@@ -4,11 +4,10 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { registerUser, setToken } from '@/api'
 import { useAsync } from '@/hooks/useAsync'
-
-import { Bottom, Contain, FormContent, Logo } from './index.style'
-import { useDispatch } from 'react-redux'
 import { commonSlice } from '@/store/common'
 import { useAppDispatch } from '@/store/store'
+
+import { Bottom, Contain, FormContent, Logo } from './index.style'
 
 export interface RegisterPageProps {}
 
@@ -34,7 +33,7 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({}) => {
     {
       manual: true,
       onSuccess() {
-        navigate('/')
+        navigate('/account')
       },
     },
   )

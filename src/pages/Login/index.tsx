@@ -32,7 +32,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({}) => {
     {
       manual: true,
       onSuccess() {
-        navigate('/')
+        navigate('/account')
       },
     },
   )

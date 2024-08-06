@@ -5,9 +5,9 @@ import { PaymentList } from '@/components/paymentList'
 
 import { Contain } from './index.style'
 
-export interface ProductsPageProps {}
+export interface PaymentsPageProps {}
 
-export const ProductsPage: React.FC<ProductsPageProps> = ({}) => {
+export const PaymentsPage: React.FC<PaymentsPageProps> = ({}) => {
   return (
     <Contain>
       <Typography.Title>Payments</Typography.Title>

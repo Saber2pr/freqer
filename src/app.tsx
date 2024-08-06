@@ -15,7 +15,7 @@ import { useAsync } from './hooks/useAsync'
 import { AccountPage } from './pages/Account'
 import { ConfirmResetPage } from './pages/confirmReset'
 import { LoginPage } from './pages/Login'
-import { ProductsPage } from './pages/Products'
+import { PaymentsPage } from './pages/Payments'
 import { RegisterPage } from './pages/Register'
 import { ResetPage } from './pages/Reset'
 import { commonSlice } from './store/common'
@@ -74,7 +74,7 @@ export const App = () => {
             <Route path="/login" element={<LoginPage />}></Route>
             <Route path="/reset" element={<ResetPage />}></Route>
             <Route path="/confirmReset" element={<ConfirmResetPage />}></Route>
-            <Route path="/payments" element={<ProductsPage />}></Route>
+            <Route path="/payments" element={<PaymentsPage />}></Route>
           </Routes>
         </Content>
       </Spin>
