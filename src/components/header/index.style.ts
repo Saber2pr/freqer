@@ -14,7 +14,18 @@ export const Contain = styled.div`
 `
 
 export const LeftContent = styled.div`
+  height: 100%;
   flex-grow: 1;
 `
 
 export const RightContent = styled.div``
+
+export const HomeLink = styled.div`
+  display: inline-block;
+  height: 100%;
+  line-height: 40px;
+  cursor: pointer;
+  &:hover {
+    color: rgb(152 217 255);
+  }
+`

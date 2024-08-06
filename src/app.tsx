@@ -8,18 +8,10 @@ import { HashRouter, Route, Routes, useNavigate } from 'react-router-dom'
 
 import { getUserInfo, setCode } from './api'
 import { getConfig } from './api/common'
-import {
-  AsideContent,
-  Container,
-  Content,
-  GlobalStyle,
-  MainContent,
-} from './app.style'
-import { AsideMenu } from './components/aside-menu'
+import { Container, Content, GlobalStyle } from './app.style'
 import { Footer } from './components/footer'
 import { Header } from './components/header'
 import { useAsync } from './hooks/useAsync'
-import { AboutPage } from './pages/About'
 import { AccountPage } from './pages/Account'
 import { ConfirmResetPage } from './pages/confirmReset'
 import { LoginPage } from './pages/Login'
@@ -76,23 +68,14 @@ export const App = () => {
       <Header />
       <Spin spinning={loadingInfo?.loading || loading} tip={loadingInfo?.text}>
         <Content>
-          <MainContent>
-            <Routes>
-              <Route path="/" element={<AccountPage />}></Route>
-              <Route path="/register" element={<RegisterPage />}></Route>
-              <Route path="/login" element={<LoginPage />}></Route>
-              <Route path="/reset" element={<ResetPage />}></Route>
-              <Route
-                path="/confirmReset"
-                element={<ConfirmResetPage />}
-              ></Route>
-              <Route path="/about" element={<AboutPage />}></Route>
-              <Route path="/products" element={<ProductsPage />}></Route>
-            </Routes>
-          </MainContent>
-          <AsideContent>
-            <AsideMenu />
-          </AsideContent>
+          <Routes>
+            <Route path="/account" element={<AccountPage />}></Route>
+            <Route path="/register" element={<RegisterPage />}></Route>
+            <Route path="/login" element={<LoginPage />}></Route>
+            <Route path="/reset" element={<ResetPage />}></Route>
+            <Route path="/confirmReset" element={<ConfirmResetPage />}></Route>
+            <Route path="/payments" element={<ProductsPage />}></Route>
+          </Routes>
         </Content>
       </Spin>
       <Footer />

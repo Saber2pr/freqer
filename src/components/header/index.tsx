@@ -5,7 +5,7 @@ import { useAppSelector } from '@/store/store'
 import { formatUserName } from '@/utils/formatUserName'
 import { UserOutlined } from '@ant-design/icons'
 
-import { Contain, LeftContent, RightContent } from './index.style'
+import { Contain, HomeLink, LeftContent, RightContent } from './index.style'
 import { clearToken } from '@/api'
 import { useNavigate } from 'react-router'
 
@@ -17,6 +17,8 @@ export const Header: React.FC<HeaderProps> = ({}) => {
 
   const menu = (
     <Menu>
+      <Menu.Item onClick={() => navigate('/account')}>Account</Menu.Item>
+      <Menu.Item onClick={() => navigate('/payments')}>Payments</Menu.Item>
       <Menu.Item
         onClick={() =>
           Modal.confirm({
@@ -38,7 +40,13 @@ export const Header: React.FC<HeaderProps> = ({}) => {
   return (
     <Contain>
       <LeftContent>
-        <div>Todolist TreeView Account</div>
+        <HomeLink
+          onClick={() => {
+            navigate('/')
+          }}
+        >
+          Freqtrade strategies
+        </HomeLink>
       </LeftContent>
       <RightContent>
         {userInfo ? (

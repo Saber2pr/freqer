@@ -1,7 +1,6 @@
-import { Card, Descriptions, Divider, Space, Tag, Typography } from 'antd'
+import { Card, Descriptions, Divider, Space, Typography } from 'antd'
 import React from 'react'
 
-import { useHasProduct } from '@/hooks/useHasProduct'
 import { useAppSelector } from '@/store/store'
 import { formatTimeStr } from '@/utils/date'
 
@@ -11,7 +10,6 @@ import { Contain } from './index.style'
 export interface AccountPageProps {}
 
 export const AccountPage: React.FC<AccountPageProps> = ({}) => {
-  const isActive = useHasProduct()
   const data = useAppSelector((state) => state?.common?.userInfo)
 
   return (
@@ -40,11 +38,6 @@ export const AccountPage: React.FC<AccountPageProps> = ({}) => {
           <Descriptions.Item label="First Login">
             {formatTimeStr(data?.createdAt)}
           </Descriptions.Item>
-          {isActive && (
-            <Descriptions.Item label="Product">
-              <Tag.CheckableTag checked>TodolistTreeViewPro</Tag.CheckableTag>
-            </Descriptions.Item>
-          )}
         </Descriptions>
       </Card>
     </Contain>
