@@ -1,0 +1,10 @@
+[
+  {
+    "name": "SMAOffsetOptV1",
+    "factor": "2.15"
+  },
+  {
+    "name": "TheRealPullbackV2",
+    "factor": "1.29"
+  }
+]
