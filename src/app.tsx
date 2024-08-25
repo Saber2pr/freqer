@@ -22,6 +22,7 @@ import { commonSlice } from './store/common'
 import { store, useAppDispatch, useAppSelector } from './store/store'
 import { parseUrlParam } from './utils/parseUrlParam'
 import { StrategyList } from './pages/StrategyList'
+import { StrategyInfo } from './pages/StrategyInfo'
 
 message.config({
   top: 48,
@@ -71,6 +72,7 @@ export const App = () => {
         <Content>
           <Routes>
             <Route path="/" element={<StrategyList />}></Route>
+            <Route path="/strategy/:id" element={<StrategyInfo />}></Route>
             <Route path="/account" element={<AccountPage />}></Route>
             <Route path="/register" element={<RegisterPage />}></Route>
             <Route path="/login" element={<LoginPage />}></Route>

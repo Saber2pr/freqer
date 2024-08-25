@@ -27,6 +27,7 @@ export const ApiUrls = {
   vipGetProductCheckout: '/api/strapi-paypal/getPaypalCheckout',
   vipCreatePayment: '/api/strapi-paypal/createProductPayment',
   vipGetPayments: '/api/strapi-paypal/getPayments',
+  getStrategy: '/api/strategy-products/getStrategy',
 }
 
 const WhiteUrls = [
