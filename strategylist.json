@@ -2,11 +2,11 @@
   {
     "name": "SMAOffsetOptV1",
     "factor": 2.15,
-    "planId": ""
+    "id": "100"
   },
   {
     "name": "TheRealPullbackV2",
     "factor": 1.29,
-    "planId": ""
+    "id": "101"
   }
 ]
