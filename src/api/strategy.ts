@@ -3,7 +3,10 @@ import axios from 'axios'
 import { getArray } from '@/utils'
 import { ApiUrls, request } from './request'
 
-const createResourceUri = (uri: string) => `https://saber2pr.top/freqer/${uri}`
+const createResourceUri = (uri: string) => {
+  return `http://localhost:8080/${uri}`
+  // return `https://saber2pr.top/freqer/${uri}`
+}
 
 const getResource = async <T = any>(uri: string) => {
   const res = await axios.get<T>(`${createResourceUri(uri)}?t=${Date.now()}`)

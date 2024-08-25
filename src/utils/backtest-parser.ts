@@ -16,10 +16,12 @@ export const parseBacktest = (content: string) => {
       .split('|')
       .map((item) => item.trim())
 
-    result.push({
-      key,
-      value,
-    })
+    if (key && value) {
+      result.push({
+        key,
+        value,
+      })
+    }
 
     if (line.includes('Market change')) {
       break

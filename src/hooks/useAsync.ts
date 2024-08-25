@@ -46,6 +46,8 @@ export function useAsync<A extends any[], T = any>(
     } catch (error) {
       if (ops?.onError) {
         await ops?.onError(error)
+      } else {
+        console.log(error)
       }
     } finally {
       setLoading(false)
