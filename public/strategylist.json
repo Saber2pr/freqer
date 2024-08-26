@@ -2,11 +2,11 @@
   {
     "name": "SMAOffsetOptV1",
     "factor": 2.15,
-    "id": "100"
+    "id": "13"
   },
   {
     "name": "TheRealPullbackV2",
     "factor": 1.29,
-    "id": "101"
+    "id": "14"
   }
 ]
