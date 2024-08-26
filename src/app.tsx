@@ -32,7 +32,7 @@ export const App = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
-  const { loading } = useAsync(async () => {
+  useAsync(async () => {
     const query = parseUrlParam(location.search)
     if (query?.code) {
       setCode(query?.code)
@@ -66,7 +66,7 @@ export const App = () => {
       {/* @ts-ignore */}
       <GlobalStyle />
       <Header />
-      <Spin spinning={loadingInfo?.loading || loading} tip={loadingInfo?.text}>
+      <Spin spinning={loadingInfo?.loading} tip={loadingInfo?.text}>
         <Content>
           <Routes>
             <Route path="/" element={<StrategyList />}></Route>
