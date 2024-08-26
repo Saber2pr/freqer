@@ -34,8 +34,8 @@ export const App = () => {
   const navigate = useNavigate()
 
   const { loading } = useAsync(async () => {
-    const config = await getConfig()
-    dispatch(commonSlice.actions.setConfig(config))
+    // const config = await getConfig()
+    // dispatch(commonSlice.actions.setConfig(config))
 
     const query = parseUrlParam(location.search)
     if (query?.code) {
@@ -44,8 +44,8 @@ export const App = () => {
       return
     }
 
-    const userInfo = await getUserInfo()
-    dispatch(commonSlice.actions.setUserInfo(userInfo))
+    // const userInfo = await getUserInfo()
+    // dispatch(commonSlice.actions.setUserInfo(userInfo))
   }, [])
 
   useEffect(() => {

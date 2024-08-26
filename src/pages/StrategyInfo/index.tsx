@@ -2,10 +2,20 @@ import { getStrategyList } from '@/api/strategy'
 import { useAsync } from '@/hooks/useAsync'
 import { useBacktestInfo } from '@/hooks/useBacktestInfo'
 import { getArray } from '@/utils'
-import { Col, Descriptions, Result, Row, Spin, Typography } from 'antd'
-import React, { useMemo } from 'react'
+import {
+  Button,
+  Col,
+  Descriptions,
+  Divider,
+  Result,
+  Row,
+  Space,
+  Spin,
+  Typography,
+} from 'antd'
+import React, { useMemo, useState } from 'react'
 import { useParams } from 'react-router'
-import { Contain } from './index.style'
+import { Contain, Iframe } from './index.style'
 
 export interface StrategyInfoProps {}
 
@@ -17,6 +27,7 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
   const { data: list, loading } = useAsync(() => getStrategyList(), [])
 
   const params = useParams()
+  const [frameLoading, setFrameLoading] = useState(true)
 
   const id = params?.id
   const currentItem = useMemo(() => {
@@ -28,7 +39,6 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
   const { data: backtestInfo, loading: backtestInfoLoading } = useBacktestInfo(
     currentItem?.backtest_uri,
   )
-  console.log('🚀 ~ backtestInfo:', backtestInfo)
 
   if (!currentItem && !loading) {
     return (
@@ -43,6 +53,14 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
       {/* 1. name */}
       <Typography.Title>{currentItem?.name}</Typography.Title>
       {/* 2. details | charts */}
+      <Spin spinning={frameLoading}>
+        <Iframe
+          src={currentItem?.profit_uri}
+          onLoad={() => {
+            setFrameLoading(false)
+          }}
+        ></Iframe>
+      </Spin>
       <Row>
         <Col span={12}>
           <Spin spinning={backtestInfoLoading}>
@@ -73,6 +91,10 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
         <Col span={12}></Col>
       </Row>
       {/* code */}
+      <Divider />
+      <Space>
+        <Button type="primary">Download StrategyCode</Button>
+      </Space>
     </Contain>
   )
 }
