@@ -7,3 +7,13 @@ export const Iframe = styled.iframe`
   height: 75vh;
   border: none;
 `
+
+export const CodeWrap = styled.div`
+  position: relative;
+`
+
+export const CopyBtn = styled.div`
+  position: absolute;
+  right: 16px;
+  top: 16px;
+`

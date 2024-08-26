@@ -1,21 +1,25 @@
-import { getStrategyList } from '@/api/strategy'
-import { useAsync } from '@/hooks/useAsync'
-import { useBacktestInfo } from '@/hooks/useBacktestInfo'
-import { getArray } from '@/utils'
 import {
   Button,
-  Col,
   Descriptions,
   Divider,
+  message,
+  Modal,
   Result,
-  Row,
-  Space,
   Spin,
   Typography,
 } from 'antd'
 import React, { useMemo, useState } from 'react'
-import { useParams } from 'react-router'
-import { Contain, Iframe } from './index.style'
+import { useNavigate, useParams } from 'react-router'
+
+import { getStrategy, getStrategyList } from '@/api/strategy'
+import { Code } from '@/components/code'
+import { useAsync } from '@/hooks/useAsync'
+import { useBacktestInfo } from '@/hooks/useBacktestInfo'
+import { useIsLogined } from '@/hooks/useIsLogined'
+import { getArray } from '@/utils'
+
+import { CodeWrap, Contain, CopyBtn, Iframe } from './index.style'
+import { createProductPayment } from '@/api/vip'
 
 export interface StrategyInfoProps {}
 
@@ -25,6 +29,8 @@ const highStyle = {
 
 export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
   const { data: list, loading } = useAsync(() => getStrategyList(), [])
+
+  const navigate = useNavigate()
 
   const params = useParams()
   const [frameLoading, setFrameLoading] = useState(true)
@@ -38,6 +44,50 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
 
   const { data: backtestInfo, loading: backtestInfoLoading } = useBacktestInfo(
     currentItem?.backtest_uri,
+  )
+
+  const isLogined = useIsLogined()
+
+  const {
+    run: buy,
+    loading: buyLoading,
+    data: strategy,
+  } = useAsync(
+    async () => {
+      if (!isLogined) {
+        navigate('/login')
+        message.info('Please login first')
+        return
+      }
+      if (currentItem) {
+        const strategy = await getStrategy(currentItem?.id)
+        if (strategy?.code) {
+          message.success('Get success')
+          return strategy
+        } else {
+          Modal.confirm({
+            title: 'Requirements',
+            content: `The current strategy needs to be purchased before it can be viewed`,
+            async onOk() {
+              const payment = await createProductPayment(strategy?.planId)
+              if (payment) {
+                const item = getArray(payment?.paymentLinks).find(
+                  (item) => item.rel === 'approve',
+                )
+                location.href = item.href
+              } else {
+                message.error('Product not found')
+              }
+            },
+            okText: 'Go to buy',
+          })
+        }
+      }
+    },
+    [currentItem, isLogined],
+    {
+      manual: true,
+    },
   )
 
   if (!currentItem && !loading) {
@@ -61,40 +111,44 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
           }}
         ></Iframe>
       </Spin>
-      <Row>
-        <Col span={12}>
-          <Spin spinning={backtestInfoLoading}>
-            <Descriptions size="small" bordered column={1}>
-              {getArray(backtestInfo).map((item) => {
-                let style = {}
-                if (
-                  item.key.includes('CAGR') ||
-                  item.key.includes('Profit factor') ||
-                  item.key.includes('Absolute Drawdown (Account)')
-                ) {
-                  style = highStyle
-                }
-                return (
-                  <Descriptions.Item
-                    labelStyle={style}
-                    contentStyle={style}
-                    label={item.key}
-                    key={item.key}
-                  >
-                    {item.value}
-                  </Descriptions.Item>
-                )
-              })}
-            </Descriptions>
-          </Spin>
-        </Col>
-        <Col span={12}></Col>
-      </Row>
+      <Spin spinning={backtestInfoLoading}>
+        <Descriptions size="small" bordered column={2}>
+          {getArray(backtestInfo).map((item) => {
+            let style = {}
+            if (
+              item.key.includes('CAGR') ||
+              item.key.includes('Profit factor') ||
+              item.key.includes('Absolute Drawdown (Account)')
+            ) {
+              style = highStyle
+            }
+            return (
+              <Descriptions.Item
+                labelStyle={style}
+                contentStyle={style}
+                label={item.key}
+                key={item.key}
+              >
+                {item.value}
+              </Descriptions.Item>
+            )
+          })}
+        </Descriptions>
+      </Spin>
       {/* code */}
       <Divider />
-      <Space>
-        <Button type="primary">Download StrategyCode</Button>
-      </Space>
+      {strategy?.code ? (
+        <CodeWrap>
+          <CopyBtn>
+            <Typography.Text copyable={{ text: strategy?.code }} />
+          </CopyBtn>
+          <Code>{strategy?.code}</Code>
+        </CodeWrap>
+      ) : (
+        <Button loading={buyLoading} type="primary" onClick={buy}>
+          Download StrategyCode
+        </Button>
+      )}
     </Contain>
   )
 }

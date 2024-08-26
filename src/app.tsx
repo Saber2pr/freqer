@@ -6,8 +6,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { HashRouter, Route, Routes, useNavigate } from 'react-router-dom'
 
-import { getUserInfo, setCode } from './api'
-import { getConfig } from './api/common'
+import { getToken, getUserInfo, setCode } from './api'
 import { Container, Content, GlobalStyle } from './app.style'
 import { Footer } from './components/footer'
 import { Header } from './components/header'
@@ -34,9 +33,6 @@ export const App = () => {
   const navigate = useNavigate()
 
   const { loading } = useAsync(async () => {
-    // const config = await getConfig()
-    // dispatch(commonSlice.actions.setConfig(config))
-
     const query = parseUrlParam(location.search)
     if (query?.code) {
       setCode(query?.code)
@@ -44,8 +40,10 @@ export const App = () => {
       return
     }
 
-    // const userInfo = await getUserInfo()
-    // dispatch(commonSlice.actions.setUserInfo(userInfo))
+    if (getToken()) {
+      const userInfo = await getUserInfo()
+      dispatch(commonSlice.actions.setUserInfo(userInfo))
+    }
   }, [])
 
   useEffect(() => {

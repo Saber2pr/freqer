@@ -22,7 +22,6 @@ export const ApiUrls = {
   login: `/api/auth/local`,
   forgot: `/api/auth/forgot-password`,
   reset: `/api/auth/reset-password`,
-  config: `/api/config`,
   vipGetProduct: '/api/strapi-paypal/getProduct',
   vipGetProductCheckout: '/api/strapi-paypal/getPaypalCheckout',
   vipCreatePayment: '/api/strapi-paypal/createProductPayment',

@@ -2,6 +2,7 @@ import axios from 'axios'
 
 import { getArray } from '@/utils'
 import { ApiUrls, request } from './request'
+import { GetStrategyResponse } from './interface'
 
 const createResourceUri = (uri: string) => {
   return `http://localhost:8080/${uri}`
@@ -38,7 +39,9 @@ export const getStrategyList = async () => {
   }))
 }
 
-export const getStrategy = async (id: string) => {
-  const res = await request.get(`${ApiUrls.getStrategy}/${id}`)
-  return res.data
+export const getStrategy = async (id: number) => {
+  const res = await request.get<GetStrategyResponse>(
+    `${ApiUrls.getStrategy}/${id}`,
+  )
+  return res?.data
 }

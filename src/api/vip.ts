@@ -34,7 +34,7 @@ export const getProductCheckout = async (orderId: string) => {
   return res.data
 }
 
-export const createProductPayment = async (planId: string) => {
+export const createProductPayment = async (planId: any) => {
   if (!planId) {
     message.error('PlanId Not Found')
     return

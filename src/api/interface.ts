@@ -194,3 +194,14 @@ export type GetProductPayments = [
   }>,
   number,
 ]
+
+export interface GetStrategyResponse {
+  id: number
+  name: string
+  params: {}
+  code: string
+  planId: number
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+}
