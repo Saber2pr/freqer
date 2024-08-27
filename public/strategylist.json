@@ -2,7 +2,7 @@
   {
     "name": "SMAOffsetOptV1",
     "factor": 2.15,
-    "id": "15",
+    "id": "13",
     "desc": "This strategy combines the offset of Simple Moving Average (SMA) and Exponential Moving Average (EMA) to generate buy and sell signals, incorporating custom stop-loss and trailing stop mechanisms to capture short-term price fluctuations, making it suitable for high-frequency trading. Buy and sell signals are based on the crossing of price with offset moving averages, while parameters such as the length of the moving averages, offset values, and triggers can be flexibly adjusted to adapt to different market conditions. The strategy includes detailed take-profit and stop-loss rules, like a gradually decreasing minimum return on investment (ROI) and flexible trailing stops, designed to prevent drawdowns and lock in profits. However, its actual effectiveness depends on the market environment, requiring comprehensive backtesting and optimization using historical data to ensure stability and profitability. In live trading, continuous monitoring and adjustments based on market dynamics are necessary to enhance the strategy's effectiveness and adaptability."
   },
   {
