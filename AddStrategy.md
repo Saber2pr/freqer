@@ -1,0 +1,4 @@
+- StrategyName
+  - StrategyName-backtest.log
+  - StrategyName-plotfit.html
+  - StrategyName.png
