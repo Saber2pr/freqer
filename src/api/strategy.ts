@@ -18,16 +18,14 @@ export type StrategyList = {
   name: string
   factor: number
   id: number
+  desc: string
 }[]
 
 export type StrategyExtItem = {
-  name: string
-  factor: number
   cover_uri: string
   backtest_uri: string
   profit_uri: string
-  id: number
-}
+} & StrategyList[0]
 
 export const getStrategyList = async () => {
   const res = await getResource<StrategyList>('strategylist.json')

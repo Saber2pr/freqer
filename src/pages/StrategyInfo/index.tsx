@@ -1,4 +1,5 @@
 import {
+  Alert,
   Button,
   Descriptions,
   Divider,
@@ -107,6 +108,7 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
     <Contain>
       {/* 1. name */}
       <Typography.Title>{currentItem?.name}</Typography.Title>
+      <Divider />
       {/* 2. details | charts */}
       <Spin spinning={frameLoading}>
         <Iframe
@@ -140,7 +142,11 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
           })}
         </Descriptions>
       </Spin>
-      {/* code */}
+      <Alert
+        type="info"
+        message={currentItem?.desc}
+        style={{ marginTop: 24 }}
+      />
       <Divider />
       {strategy?.code ? (
         <CodeWrap>

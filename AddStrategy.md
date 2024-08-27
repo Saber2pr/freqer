@@ -9,3 +9,4 @@
   - name
   - factor
   - id
+  - desc
