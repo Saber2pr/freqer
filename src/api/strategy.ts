@@ -5,8 +5,8 @@ import { ApiUrls, request } from './request'
 import { GetStrategyResponse } from './interface'
 
 const createResourceUri = (uri: string) => {
-  return `http://localhost:8080/${uri}`
-  // return `https://saber2pr.top/freqer/${uri}`
+  // return `http://localhost:8080/${uri}`
+  return `https://saber2pr.top/freqer/${uri}`
 }
 
 const getResource = async <T = any>(uri: string) => {

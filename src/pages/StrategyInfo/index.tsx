@@ -69,7 +69,7 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
             title: 'Requirements',
             content: `The current strategy needs to be purchased before it can be viewed`,
             async onOk() {
-              const payment = await createProductPayment(strategy?.planId)
+              const payment = await createProductPayment(currentItem?.id)
               if (payment) {
                 const item = getArray(payment?.paymentLinks).find(
                   (item) => item.rel === 'approve',
