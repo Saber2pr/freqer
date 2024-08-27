@@ -19,7 +19,7 @@ import { useIsLogined } from '@/hooks/useIsLogined'
 import { getArray } from '@/utils'
 
 import { CodeWrap, Contain, CopyBtn, Iframe } from './index.style'
-import { createProductPayment } from '@/api/vip'
+import { createProductPayment, getProduct } from '@/api/vip'
 
 export interface StrategyInfoProps {}
 
@@ -69,7 +69,12 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
             title: 'Requirements',
             content: `The current strategy needs to be purchased before it can be viewed`,
             async onOk() {
-              const payment = await createProductPayment(currentItem?.id)
+              const product = await getProduct(currentItem?.id)
+              if (!product) {
+                message.error('Product not found')
+                return
+              }
+              const payment = await createProductPayment(product?.paypalPlanId)
               if (payment) {
                 const item = getArray(payment?.paymentLinks).find(
                   (item) => item.rel === 'approve',
@@ -146,7 +151,7 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
         </CodeWrap>
       ) : (
         <Button loading={buyLoading} type="primary" onClick={buy}>
-          Download StrategyCode
+          Get StrategyCode
         </Button>
       )}
     </Contain>
