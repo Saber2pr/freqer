@@ -4,7 +4,13 @@ import { message, Spin } from 'antd'
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { HashRouter, Route, Routes, useNavigate } from 'react-router-dom'
+import {
+  HashRouter,
+  Route,
+  Routes,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom'
 
 import { getToken, getUserInfo, setCode } from './api'
 import { Container, Content, GlobalStyle } from './app.style'
@@ -45,6 +51,12 @@ export const App = () => {
       dispatch(commonSlice.actions.setUserInfo(userInfo))
     }
   }, [])
+
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   useEffect(() => {
     const handle = () => {
