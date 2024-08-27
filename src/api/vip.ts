@@ -34,8 +34,8 @@ export const getProductCheckout = async (orderId: string) => {
   return res.data
 }
 
-export const createProductPayment = async (planId: any) => {
-  if (!planId) {
+export const createProductPayment = async (planId: any, pid: any) => {
+  if (!planId || !pid) {
     message.error('PlanId Not Found')
     return
   }
@@ -44,6 +44,7 @@ export const createProductPayment = async (planId: any) => {
     `${ApiUrls.vipCreatePayment}`,
     {
       planId,
+      pid,
     },
   )
 

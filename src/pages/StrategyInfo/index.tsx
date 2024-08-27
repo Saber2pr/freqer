@@ -75,7 +75,10 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
                 message.error('Product not found')
                 return
               }
-              const payment = await createProductPayment(product?.paypalPlanId)
+              const payment = await createProductPayment(
+                product?.paypalPlanId,
+                currentItem?.id,
+              )
               if (payment) {
                 const item = getArray(payment?.paymentLinks).find(
                   (item) => item.rel === 'approve',
