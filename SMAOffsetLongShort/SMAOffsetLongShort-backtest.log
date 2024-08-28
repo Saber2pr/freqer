@@ -1,0 +1,132 @@
+Result for strategy SMAOffsetLongShort
+======================================================= BACKTESTING REPORT ======================================================
+|             Pair |   Entries |   Avg Profit % |   Tot Profit USDT |   Tot Profit % |   Avg Duration |   Win  Draw  Loss  Win% |
+|------------------+-----------+----------------+-------------------+----------------+----------------+-------------------------|
+|     OM/USDT:USDT |        11 |          12.22 |           185.017 |          92.51 |        0:48:00 |     4     0     7  36.4 |
+|  STORJ/USDT:USDT |         8 |          18.91 |           144.796 |          72.40 |        1:01:00 |     4     0     4  50.0 |
+|   MEME/USDT:USDT |         7 |          11.62 |            69.264 |          34.63 |        0:58:00 |     3     0     4  42.9 |
+|   SHIB/USDT:USDT |        14 |           4.67 |            65.523 |          32.76 |        0:14:00 |     3     0    11  21.4 |
+|    ARB/USDT:USDT |         2 |          26.93 |            43.677 |          21.84 |        0:20:00 |     1     0     1  50.0 |
+|    ADA/USDT:USDT |         1 |          28.75 |            43.543 |          21.77 |        3:55:00 |     1     0     0   100 |
+|   RDNT/USDT:USDT |         3 |          18.86 |            41.949 |          20.97 |        0:50:00 |     2     0     1  66.7 |
+| PEOPLE/USDT:USDT |         3 |           5.41 |            16.118 |           8.06 |        0:28:00 |     1     0     2  33.3 |
+|     OP/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    MEW/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    ETH/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    ATH/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|  SWEAT/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|   FOXY/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    FLR/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    GPT/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    XLM/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|   TNSR/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    BAT/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    JST/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    WIF/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|   ZERO/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|   SAND/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|   ORDI/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    ETC/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    BTC/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    GFT/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    ACH/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|     ID/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|   ZENT/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|   ALGO/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|   LINK/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    SUI/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    DOT/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    APT/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|   ZETA/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    GRT/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    GLM/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    MAX/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|   NEAR/USDT:USDT |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+|    CRV/USDT:USDT |         2 |           2.62 |            -5.042 |          -2.52 |        0:22:00 |     1     0     1  50.0 |
+|   BLUR/USDT:USDT |         4 |          -3.42 |            -7.227 |          -3.61 |        0:29:00 |     1     0     3  25.0 |
+|    RSR/USDT:USDT |         1 |         -10.49 |           -13.819 |          -6.91 |        0:45:00 |     0     0     1     0 |
+|    TIA/USDT:USDT |         6 |          -1.59 |           -17.672 |          -8.84 |        1:22:00 |     1     0     5  16.7 |
+|   IOST/USDT:USDT |         1 |         -10.45 |           -19.909 |          -9.95 |        1:05:00 |     0     0     1     0 |
+|    FTM/USDT:USDT |         2 |         -10.42 |           -28.745 |         -14.37 |        0:20:00 |     0     0     2     0 |
+|  THETA/USDT:USDT |         2 |         -10.48 |           -29.573 |         -14.79 |        0:18:00 |     0     0     2     0 |
+|   RACA/USDT:USDT |         4 |         -10.34 |           -39.272 |         -19.64 |        0:10:00 |     0     0     4     0 |
+|   HBAR/USDT:USDT |         5 |          -5.85 |           -55.856 |         -27.93 |        0:36:00 |     1     0     4  20.0 |
+|            TOTAL |        76 |           5.74 |           392.775 |         196.39 |        0:42:00 |    23     0    53  30.3 |
+=============================================== LEFT OPEN TRADES REPORT ===============================================
+|   Pair |   Entries |   Avg Profit % |   Tot Profit USDT |   Tot Profit % |   Avg Duration |   Win  Draw  Loss  Win% |
+|--------+-----------+----------------+-------------------+----------------+----------------+-------------------------|
+|  TOTAL |         0 |           0.00 |             0.000 |           0.00 |           0:00 |     0     0     0     0 |
+=================================================== ENTER TAG STATS ====================================================
+|     TAG |   Entries |   Avg Profit % |   Tot Profit USDT |   Tot Profit % |   Avg Duration |   Win  Draw  Loss  Win% |
+|---------+-----------+----------------+-------------------+----------------+----------------+-------------------------|
+|  s_long |        75 |           5.30 |           347.303 |         173.65 |        0:42:00 |    22     0    53  29.3 |
+| s_short |         1 |          39.10 |            45.472 |          22.74 |        0:20:00 |     1     0     0   100 |
+|   TOTAL |        76 |           5.74 |           392.775 |         196.39 |        0:42:00 |    23     0    53  30.3 |
+==================================================== EXIT REASON STATS =====================================================
+|   Exit Reason |   Exits |   Avg Profit % |   Tot Profit USDT |   Tot Profit % |   Avg Duration |   Win  Draw  Loss  Win% |
+|---------------+---------+----------------+-------------------+----------------+----------------+-------------------------|
+|  s_exit_short |      22 |          40.48 |          1029.859 |         514.93 |        1:30:00 |    22     0     0   100 |
+|           roi |       1 |          99.95 |            65.909 |          32.95 |        0:00:00 |     1     0     0   100 |
+|     stop_loss |      53 |         -10.45 |          -702.993 |        -351.50 |        0:23:00 |     0     0    53     0 |
+|         TOTAL |      76 |           5.74 |           392.775 |         196.39 |        0:42:00 |    23     0    53  30.3 |
+=================== SUMMARY METRICS ====================
+| Metric                      | Value                  |
+|-----------------------------+------------------------|
+| Backtesting from            | 2023-07-06 00:00:00    |
+| Backtesting to              | 2024-08-09 00:00:00    |
+| Max open trades             | 3                      |
+|                             |                        |
+| Total/Daily Avg Trades      | 76 / 0.19              |
+| Starting balance            | 200 USDT               |
+| Final balance               | 592.775 USDT           |
+| Absolute profit             | 392.775 USDT           |
+| Total profit %              | 196.39%                |
+| CAGR %                      | 169.51%                |
+| Sortino                     | 4.60                   |
+| Sharpe                      | 0.60                   |
+| Calmar                      | 34.76                  |
+| Profit factor               | 1.56                   |
+| Expectancy (Ratio)          | 5.17 (0.39)            |
+| Avg. daily profit %         | 0.49%                  |
+| Avg. stake amount           | 122.175 USDT           |
+| Total trade volume          | 9285.308 USDT          |
+|                             |                        |
+| Long / Short                | 75 / 1                 |
+| Total profit Long %         | 173.65%                |
+| Total profit Short %        | 22.74%                 |
+| Absolute profit Long        | 347.303 USDT           |
+| Absolute profit Short       | 45.472 USDT            |
+|                             |                        |
+| Best Pair                   | STORJ/USDT:USDT 72.40% |
+| Worst Pair                  | RACA/USDT:USDT -19.64% |
+| Best trade                  | STORJ/USDT:USDT 99.95% |
+| Worst trade                 | OM/USDT:USDT -10.49%   |
+| Best day                    | 115.152 USDT           |
+| Worst day                   | -79.311 USDT           |
+| Days win/draw/lose          | 13 / 244 / 12          |
+| Avg. Duration Winners       | 1:26:00                |
+| Avg. Duration Loser         | 0:23:00                |
+| Max Consecutive Wins / Loss | 4 / 9                  |
+| Rejected Entry signals      | 39                     |
+| Entry/Exit Timeouts         | 0 / 0                  |
+|                             |                        |
+| Min balance                 | 191.646 USDT           |
+| Max balance                 | 592.775 USDT           |
+| Max % of account underwater | 27.93%                 |
+| Absolute Drawdown (Account) | 26.99%                 |
+| Absolute Drawdown           | 156.496 USDT           |
+| Drawdown high               | 379.862 USDT           |
+| Drawdown low                | 223.367 USDT           |
+| Drawdown Start              | 2024-03-19 16:20:00    |
+| Drawdown End                | 2024-06-03 18:40:00    |
+| Market change               | 23.16%                 |
+========================================================
+
+Backtested 2023-07-06 00:00:00 -> 2024-08-09 00:00:00 | Max open trades : 3
+==================================================================== STRATEGY SUMMARY ====================================================================
+|           Strategy |   Entries |   Avg Profit % |   Tot Profit USDT |   Tot Profit % |   Avg Duration |   Win  Draw  Loss  Win% |             Drawdown |
+|--------------------+-----------+----------------+-------------------+----------------+----------------+-------------------------+----------------------|
+| SMAOffsetLongShort |        76 |           5.74 |           392.775 |         196.39 |        0:42:00 |    23     0    53  30.3 | 156.496 USDT  26.99% |
+==========================================================================================================================================================
+
+For more details, please look at the detail tables above

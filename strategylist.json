@@ -1,5 +1,11 @@
 [
   {
+    "name": "SMAOffsetLongShort",
+    "factor": 1.56,
+    "id": "16",
+    "desc": "The 'SMAOffsetLongShort' strategy is designed for leverage trading with both long and short positions, using a leverage factor of 5. It operates on a 5-minute timeframe and includes an additional 1-hour informative timeframe. The strategy combines Simple Moving Averages (SMA) with customizable offsets for entry and exit points and uses Exponential Moving Averages (EMA) to detect market trends. Long positions are entered when the price is below the offset SMA and in an uptrend, while short positions are entered when the price is above the offset SMA and in a downtrend. The strategy includes both fixed and custom stoploss mechanisms, optimizing entry and exit points to maximize profits in both rising and falling markets."
+  },
+  {
     "name": "SMAOffsetOptV1",
     "factor": 2.15,
     "id": "13",
