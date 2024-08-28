@@ -1,4 +1,4 @@
-import { Col, Row } from 'antd'
+import { Col, Row, Spin } from 'antd'
 import React from 'react'
 
 import { getStrategyList } from '@/api/strategy'
@@ -11,17 +11,19 @@ import { Contain } from './index.style'
 export interface StrategyListProps {}
 
 export const StrategyList: React.FC<StrategyListProps> = ({}) => {
-  const { data: list } = useAsync(() => getStrategyList(), [])
+  const { data: list, loading } = useAsync(() => getStrategyList(), [])
 
   return (
     <Contain>
-      <Row gutter={[16, 16]}>
-        {getArray(list).map((item) => (
-          <Col key={item.name} span={6}>
-            <Card item={item} />
-          </Col>
-        ))}
-      </Row>
+      <Spin spinning={loading}>
+        <Row gutter={[16, 16]}>
+          {getArray(list).map((item) => (
+            <Col key={item.name} span={6}>
+              <Card item={item} />
+            </Col>
+          ))}
+        </Row>
+      </Spin>
     </Contain>
   )
 }
