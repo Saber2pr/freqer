@@ -3,6 +3,7 @@ import {
   Button,
   Descriptions,
   Divider,
+  Image,
   message,
   Modal,
   Result,
@@ -12,7 +13,7 @@ import {
 import React, { useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
-import { getStrategy, getStrategyList } from '@/api/strategy'
+import { createResourceUri, getStrategy, getStrategyList } from '@/api/strategy'
 import { Code } from '@/components/code'
 import { useAsync } from '@/hooks/useAsync'
 import { useBacktestInfo } from '@/hooks/useBacktestInfo'
@@ -68,27 +69,87 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
         } else {
           Modal.confirm({
             title: 'Requirements',
-            content: `The current strategy needs to be purchased before it can be viewed`,
-            async onOk() {
-              const product = await getProduct(currentItem?.id)
-              if (!product) {
-                message.error('Product not found')
-                return
-              }
-              const payment = await createProductPayment(
-                product?.paypalPlanId,
-                currentItem?.id,
-              )
-              if (payment) {
-                const item = getArray(payment?.paymentLinks).find(
-                  (item) => item.rel === 'approve',
-                )
-                location.href = item.href
-              } else {
-                message.error('Product not found')
-              }
+            width: 600,
+            content: (
+              <div>
+                <Typography.Paragraph>
+                  The current strategy needs to be purchased before it can be
+                  viewed.
+                  <br />
+                  Two ways for buy it:
+                </Typography.Paragraph>
+
+                <Divider />
+                <Typography.Paragraph>
+                  Way 1: Purchase with PayPal. (Automatic delivery.)
+                </Typography.Paragraph>
+                <Button
+                  type="primary"
+                  onClick={async () => {
+                    const product = await getProduct(currentItem?.id)
+                    if (!product) {
+                      message.error('Product not found')
+                      return
+                    }
+                    const payment = await createProductPayment(
+                      product?.paypalPlanId,
+                      currentItem?.id,
+                    )
+                    if (payment) {
+                      const item = getArray(payment?.paymentLinks).find(
+                        (item) => item.rel === 'approve',
+                      )
+                      location.href = item.href
+                    } else {
+                      message.error('Product not found')
+                    }
+                  }}
+                >
+                  Buy with Paypal
+                </Button>
+                <Divider />
+                <Typography.Paragraph>
+                  Way 2: Purchase with cryptocurrency. (1.0 USDT)
+                </Typography.Paragraph>
+                <Typography.Paragraph type="secondary">
+                  Use a cryptocurrency wallet app to scan the QR code and make
+                  the payment. (Binance, OKX, MetaMask, etc.)
+                </Typography.Paragraph>
+                <Image
+                  style={{ display: 'block', margin: '0 auto' }}
+                  width={200}
+                  height={200}
+                  src={createResourceUri('receive.jpg')}
+                />
+                <Typography.Paragraph strong>
+                  After completing the payment, please send the
+                  <u style={{ margin: '0.5em' }}>
+                    wallet address you used for the payment
+                  </u>
+                  as a message to the
+                  <a
+                    target="_blank"
+                    style={{ margin: '0.5em' }}
+                    href="https://t.me/recover2025"
+                  >
+                    @recover2025
+                  </a>
+                  account(telegram) or email to
+                  <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=saber2pr@gmail.com&su=%5BFreqtrade%20Strategies%5D%20Purchase%20with%20cryptocurrency&body=Wallet%20address%20used%20for%20the%20payment%3A"
+                    target="_blank"
+                    style={{ margin: '0.5em' }}
+                  >
+                    saber2pr@gmail.com
+                  </a>
+                  . Your order will be processed and activated shortly after.
+                </Typography.Paragraph>
+                <Divider />
+              </div>
+            ),
+            okButtonProps: {
+              hidden: true,
             },
-            okText: 'Go to buy',
           })
         }
       }
@@ -145,11 +206,13 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
           })}
         </Descriptions>
       </Spin>
-      <Alert
-        type="info"
-        message={currentItem?.desc}
-        style={{ marginTop: 24 }}
-      />
+      {currentItem?.desc && (
+        <Alert
+          type="info"
+          message={currentItem?.desc}
+          style={{ marginTop: 24 }}
+        />
+      )}
       <Divider />
       {strategy?.code ? (
         <CodeWrap>

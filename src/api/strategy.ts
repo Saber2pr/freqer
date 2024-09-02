@@ -4,7 +4,7 @@ import { getArray } from '@/utils'
 import { ApiUrls, request } from './request'
 import { GetStrategyResponse } from './interface'
 
-const createResourceUri = (uri: string) => {
+export const createResourceUri = (uri: string) => {
   // return `http://localhost:8080/${uri}`
   return `https://saber2pr.top/freqer/${uri}`
 }
