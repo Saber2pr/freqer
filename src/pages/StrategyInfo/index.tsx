@@ -135,6 +135,8 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
                   <u style={{ margin: '0.5em' }}>
                     wallet address you used for the payment
                   </u>
+                  and
+                  <u style={{ margin: '0.5em' }}>Current page url address</u>
                   as a message to the
                   <a
                     target="_blank"
@@ -145,7 +147,7 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
                   </a>
                   account(telegram) or email to
                   <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=saber2pr@gmail.com&su=%5BFreqtrade%20Strategies%5D%20Purchase%20with%20cryptocurrency&body=Wallet%20address%20used%20for%20the%20payment%3A"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=saber2pr@gmail.com&su=%5BFreqtrade%20Strategies%5D%20Purchase%20with%20cryptocurrency&body=Wallet%20address%20used%20for%20the%20payment%3A%0ACurrent%20page%20url%20address%3A"
                     target="_blank"
                     style={{ margin: '0.5em' }}
                   >
