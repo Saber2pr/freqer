@@ -50,6 +50,32 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
 
   const isLogined = useIsLogined()
 
+  const { loading: paypalBuyLoading, run: paypalBuy } = useAsync(
+    async () => {
+      const product = await getProduct(currentItem?.id)
+      if (!product) {
+        message.error('Product not found')
+        return
+      }
+      const payment = await createProductPayment(
+        product?.paypalPlanId,
+        currentItem?.id,
+      )
+      if (payment) {
+        const item = getArray(payment?.paymentLinks).find(
+          (item) => item.rel === 'approve',
+        )
+        location.href = item.href
+      } else {
+        message.error('Product not found')
+      }
+    },
+    [currentItem?.id],
+    {
+      manual: true,
+    },
+  )
+
   const {
     run: buy,
     loading: buyLoading,
@@ -85,25 +111,8 @@ export const StrategyInfo: React.FC<StrategyInfoProps> = ({}) => {
                 </Typography.Paragraph>
                 <Button
                   type="primary"
-                  onClick={async () => {
-                    const product = await getProduct(currentItem?.id)
-                    if (!product) {
-                      message.error('Product not found')
-                      return
-                    }
-                    const payment = await createProductPayment(
-                      product?.paypalPlanId,
-                      currentItem?.id,
-                    )
-                    if (payment) {
-                      const item = getArray(payment?.paymentLinks).find(
-                        (item) => item.rel === 'approve',
-                      )
-                      location.href = item.href
-                    } else {
-                      message.error('Product not found')
-                    }
-                  }}
+                  loading={paypalBuyLoading}
+                  onClick={paypalBuy}
                 >
                   Buy with Paypal
                 </Button>
